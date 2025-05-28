@@ -24,9 +24,9 @@ def preprocessing(text) -> str:
 #####COMPRESSION######
 
 def rightrotate(text,c) -> str:
-    s = ""
-    for i in range(c):
-        s=s+(text[(len(text)-i-1)])
+    r = text[-c:]
+    s=r
+    #s= reverse_string(r)
     return s+text[:len(text)-c]
 
 def rightshift(text,c) -> str:
@@ -56,3 +56,5 @@ def compare(c1,c2):
     if (c1=='0' and c2=='1'):return '0'
     if (c1=='1' and c2=='1'):return '1'
     return 0
+def reverse_string(s):
+  return s[::-1]
