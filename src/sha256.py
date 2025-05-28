@@ -21,13 +21,38 @@ def preprocessing(text) -> str:
 
 
 
+#####COMPRESSION######
 
 def rightrotate(text,c) -> str:
     s = ""
-    for (i in c):
-        s.append(text.charAt(len(text)-i))
-
-    return s+text.substring(len(text)-c)
+    for i in range(c):
+        s=s+(text[(len(text)-i-1)])
+    return s+text[:len(text)-c]
 
 def rightshift(text,c) -> str:
-    
+    s=""
+    for x in range(c):
+        s=s+("0")
+    x = len(text)-c
+    for o in range(x):
+        s=s+text[o+c]
+    return s
+
+def tXor(s1,s2):
+    s3=""
+    for i in range(len(s1)):
+        s3=s3+int(s1[i])^int(s2[i])
+    return s3
+
+def tAnd(s1,s2):
+    s3=""
+    for i in range(len(s1)):
+        s3=s3+compare(s1[i],s2[i])
+    return s3
+
+def compare(c1,c2):
+    if (c1=='0' and c2=='0'):return '1'
+    if (c1=='1' and c2=='0'):return '0'
+    if (c1=='0' and c2=='1'):return '0'
+    if (c1=='1' and c2=='1'):return '1'
+    return 0
