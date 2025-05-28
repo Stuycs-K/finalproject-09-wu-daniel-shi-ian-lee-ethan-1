@@ -21,3 +21,7 @@ Simplified preprocessing step
 
 ### 05/24/25 - Fix preprocessing, add test cases for preprocessing
 As the name implies...
+
+### 5/27/25 - Step 4 (breaking into chunks)
+wrote get_512_bit_chunks(), which converts the binary into a array of parts which each has 512 bits
+wrote test cases for it
