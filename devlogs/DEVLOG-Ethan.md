@@ -13,4 +13,5 @@ Delegated tasks for groupwork so we can collaborate outside of school
 Discussed presentations with other sha groups.
 
 ### 2025-05-28 - Brief description
-Finished compression methods and working on implentation within the chunking loop
+finished right rotate right shift and started testing; initialized variables a-h
+started compression methods and working on implentation within the chunking loop
