@@ -25,8 +25,7 @@ def preprocessing(text) -> str:
 
 def rightrotate(text,c) -> str:
     r = text[-c:]
-    s=r
-    #s= reverse_string(r)
+    s= reverse_string(r)
     return s+text[:len(text)-c]
 
 def rightshift(text,c) -> str:
