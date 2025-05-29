@@ -30,10 +30,7 @@ def rightshift(text,c) -> str:
     s=""
     for x in range(c):
         s=s+("0")
-    x = len(text)-c
-    for o in range(x):
-        s=s+text[o+c]
-    return s
+    return s + text[:len(text)-c]
 
 def tXor(s1,s2):
     s3=""
