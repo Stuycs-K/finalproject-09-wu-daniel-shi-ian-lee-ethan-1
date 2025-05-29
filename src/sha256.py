@@ -24,9 +24,7 @@ def preprocessing(text) -> str:
 #####COMPRESSION######
 
 def rightrotate(text,c) -> str:
-    r = text[-c:]
-    s= reverse_string(r)
-    return s+text[:len(text)-c]
+    return text[-c:]+text[:len(text)-c]
 
 def rightshift(text,c) -> str:
     s=""
