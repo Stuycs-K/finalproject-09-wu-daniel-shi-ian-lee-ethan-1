@@ -35,7 +35,7 @@ def rightshift(text,c) -> str:
 def tXor(s1,s2):
     s3=""
     for i in range(len(s1)):
-        s3=s3+int(s1[i])^int(s2[i])
+        s3=s3+str(int(s1[i])^int(s2[i]))
     return s3
 
 def tAnd(s1,s2):
