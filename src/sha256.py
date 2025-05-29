@@ -1,4 +1,5 @@
 from util import *
+from constants import *
 
 def preprocessing(text) -> str:
     binary = string_to_binary(text)
@@ -18,11 +19,49 @@ def preprocessing(text) -> str:
 # The next thing to discuss is “rightrotate”. This means we take a binary number, then take its digit on the far right and place it on the far left of the number. Repeat this for the number of times indicated after the word “rightrotate”.
 
 # Now consider “rightshift”. This means removing the digit on the far right and adding a zero to the far left. Repeat this for the number of times indicated.
+def testSha(w):
+    a=HashValues.h0
+    b=HashValues.h1
+    c=HashValues.h2
+    d=HashValues.h3
+    e=HashValues.h4
+    f=HashValues.h5
+    g=HashValues.h6
+    h=HashValues.h7
+    for i in range(63):
+        S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
+        ch=tXor(tAnd(e,f),tXor(tAnd((tNot(e)),g)))
+        temp1=bitAdd(bitAdd(h,S1),ch)+RoundConstants.k[i]+w[i]
+        SO=tXor(tXor(rightrotate(a,2),rightrotate(a,13)),rightrotate(a,22))
+        maj=tXor(tXor(tAnd(a,b),tAnd(a,c)),tXor(b,c))
+        temp2=bitAdd(SO,maj)
+        h=g
+        g=f
+        f=e
+        e=bitAdd(d,temp1)
+        d=c
+        c=b
+        b=a
+        a=bitAdd(temp1,temp2)
+    l=[]
+    l.append(a)
+    l.append(b)
+    l.append(c)
+    l.append(d)
+    l.append(e)
+    l.append(f)
+    l.append(g)
+    l.append(h)
+    return l
 
 
-
+def tNot(s):
+    for i in range(len(s)):
+        s[i]=str(not int(s[i]))
+    return s
 #####COMPRESSION######
-
+def bitAdd(s1,s2):
+    return bin((int(s1, 2)+int(s2,2)))[2:]
 def rightrotate(text,c) -> str:
     return text[-c:]+text[:len(text)-c]
 
