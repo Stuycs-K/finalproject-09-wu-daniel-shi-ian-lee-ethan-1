@@ -15,3 +15,5 @@ Discussed presentations with other sha groups.
 ### 2025-05-28 - Brief description
 finished right rotate right shift and started testing; initialized variables a-h
 started compression methods and working on implentation within the chunking loop
+### 2025-05-29 
+Wrote the compression loop and created bitwise add function
