@@ -15,6 +15,49 @@ def preprocessing(text) -> str:
 
     return binary
 
+#following functions are per 512 chunk
+def singular_32_split(processed_bits): #split a 512 block into 16 32 bits
+    bitArray = []
+    for i in range(0, len(processed_bits), 32):
+        bitArray.append(processed_bits[i:i+32])
+    for i in range(0, 48):
+        bitArray.append('0'*32)
+    return bitArray
+
+def multiple_32_split(chunk_Array):
+    split_Array=[]
+    for i in range(0,len(chunk_Array)):
+        split_Array.append(singular_32_split(chunk_Array[i]))
+    return split_Array
+
+
+
+#message_schedule helpers
+
+def s0(binary_string):
+    rr7 = rightrotate(binary_string,7)
+    rr18 = rightrotate(binary_string, 18)
+    rs3 = rightshift(binary_string, 3)
+    xor1 = tXor(rr7, rr18)
+    xorfinal = tXor(xor1, rs3)
+    return xorfinal
+
+def s1(binary_string):
+    rr17 = rightrotate(binary_string, 17)
+    rr19 = rightrotate(binary_string, 19)
+    rs10 = rightshift(binary_string, 10)
+    xor = tXor(rr17, rr19)
+    xorfinal = tXor(xor, rs10)
+    return xorfinal
+
+def message_schedule(split_array):
+    for i in range(16, len(split_array)):
+        s0value = s0(split_array[i-15])
+        s1value = s1(split_array[i-2])
+        sum = (split_array[i-16] + s0value) % (2**32)
+        sum = (sum + split_array[i-7]) % (2**32)
+        return (sum + s1) % (2**32)
+    
 
 # The next thing to discuss is “rightrotate”. This means we take a binary number, then take its digit on the far right and place it on the far left of the number. Repeat this for the number of times indicated after the word “rightrotate”.
 

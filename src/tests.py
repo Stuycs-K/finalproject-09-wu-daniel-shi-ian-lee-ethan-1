@@ -32,3 +32,7 @@ assert tAnd(string_to_binary('hello'),string_to_binary('hello'))=='1111111111111
 # sha256("hello")==b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
 #assert testSha(w)=="b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
 assert bitAdd("010","010")=="100"
+
+assert rightshift(string_to_binary("h"), 3) == '00001101'
+assert rightrotate('01101111001000000111011101101111', 7) == '11011110110111100100000011101110'
+assert s0('01101111001000000111011101101111') == '11001110111000011001010111001011'
