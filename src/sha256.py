@@ -71,10 +71,18 @@ def testSha(w):
     f=integer_to_binary(HashValues.h5.value,32)
     g=integer_to_binary(HashValues.h6.value,32)
     h=integer_to_binary(HashValues.h7.value,32)
+    print(a)
+    print(b)
+    print(c)
+    print(d)
+    print(e)
+    print(f)
+    print(g)
+    print(h)
     for i in range(63):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
-        ch=tXor(tAnd(e,f),tXor(tAnd((tNot(e)),g)))
-        temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),str(RoundConstants.k[i])),str(w[i]))
+        ch=tXor(tAnd(e,f),tAnd(tNot(e),g))
+        temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),format((RoundConstants.k.value)[i],'b')),str(w[i]))
         SO=tXor(tXor(rightrotate(a,2),rightrotate(a,13)),rightrotate(a,22))
         maj=tXor(tXor(tAnd(a,b),tAnd(a,c)),tXor(b,c))
         temp2=bitAdd(SO,maj)
@@ -107,7 +115,12 @@ def tNot(s):
     return s1
 #####COMPRESSION######
 def bitAdd(s1,s2):
-    return bin((int(s1, 2)+int(s2,2)))[2:]
+    binary=format((int(s1, 2)+int(s2,2)),'b')
+    if len(binary)<32:
+        return '0'*(32-len(binary))+binary
+    if len(binary)==32:
+        return binary
+    else: return binary[-32:]
 def rightrotate(text,c) -> str:
     return text[-c:]+text[:len(text)-c]
 
