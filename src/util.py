@@ -8,7 +8,11 @@ def integer_to_binary(number:int, bits:int = None) -> str:
     if bits is None:
         return bin(number)[2:]  # Remove the "0b" prefix
     else:
-         return format(number, '0{}b'.format(bits))
+        binary = bin(number)[2:]
+        if (len(binary) < bits):
+            return '0' * (bits - len(binary)) + binary
+        else:
+            return binary[len(binary) - bits:len(binary)]
 
 def get_next_multiple_of_512(num: int) -> int:
     """
