@@ -31,7 +31,7 @@ def testSha(w):
     for i in range(63):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
         ch=tXor(tAnd(e,f),tXor(tAnd((tNot(e)),g)))
-        temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),RoundConstants.k[i]),w[i])
+        temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),str(RoundConstants.k[i])),str(w[i]))
         SO=tXor(tXor(rightrotate(a,2),rightrotate(a,13)),rightrotate(a,22))
         maj=tXor(tXor(tAnd(a,b),tAnd(a,c)),tXor(b,c))
         temp2=bitAdd(SO,maj)
