@@ -23,7 +23,7 @@ Worked on encoding the message  schedule of Sha256
 Finished encoding the splitting of the 512 blocks into 16 32 bit strings in arrays for each block
 
 ### 2024-05/29/25 - Message Schedule 3
-Working on creating the 64-word message schedule
+Working on creating the 64-word message schedule, finished doing the 64 word message schedule
 ### 2024-01-03 - Brief description
 
 ### 2024-01-03 - Brief description
