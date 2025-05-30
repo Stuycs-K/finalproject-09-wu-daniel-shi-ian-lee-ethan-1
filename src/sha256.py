@@ -63,14 +63,14 @@ def message_schedule(split_array):
 
 # Now consider “rightshift”. This means removing the digit on the far right and adding a zero to the far left. Repeat this for the number of times indicated.
 def testSha(w):
-    a=HashValues.h0
-    b=HashValues.h1
-    c=HashValues.h2
-    d=HashValues.h3
-    e=HashValues.h4
-    f=HashValues.h5
-    g=HashValues.h6
-    h=HashValues.h7
+    a=integer_to_binary(HashValues.h0.value,32)
+    b=integer_to_binary(HashValues.h1.value,32)
+    c=integer_to_binary(HashValues.h2.value,32)
+    d=integer_to_binary(HashValues.h3.value,32)
+    e=integer_to_binary(HashValues.h4.value,32)
+    f=integer_to_binary(HashValues.h5.value,32)
+    g=integer_to_binary(HashValues.h6.value,32)
+    h=integer_to_binary(HashValues.h7.value,32)
     for i in range(63):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
         ch=tXor(tAnd(e,f),tXor(tAnd((tNot(e)),g)))
@@ -99,9 +99,12 @@ def testSha(w):
 
 
 def tNot(s):
+    s1=""
     for i in range(len(s)):
-        s[i]=str(not int(s[i]))
-    return s
+        if s[i]=="0":
+            s1+="1"
+        else: s1+="0"
+    return s1
 #####COMPRESSION######
 def bitAdd(s1,s2):
     return bin((int(s1, 2)+int(s2,2)))[2:]
@@ -123,7 +126,7 @@ def tXor(s1,s2):
 def tAnd(s1,s2):
     s3=""
     for i in range(len(s1)):
-        s3=s3+compare(s1[i],s2[i])
+        s3+=compare(s1[i],s2[i])
     return s3
 
 def compare(c1,c2):
