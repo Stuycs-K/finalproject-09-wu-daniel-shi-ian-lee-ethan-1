@@ -17,3 +17,5 @@ finished right rotate right shift and started testing; initialized variables a-h
 started compression methods and working on implentation within the chunking loop
 ### 2025-05-29 
 Wrote the compression loop and created bitwise add function
+### 2025-05-31
+HUGE WIN! Went through each new variable in the first iteration of the compression loop, modified the helper functions, and readjusted the loop to run for 64 iterations. Tested and confirmed success with the final a-h values from research.
