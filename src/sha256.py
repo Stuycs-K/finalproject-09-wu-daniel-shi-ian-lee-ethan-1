@@ -71,15 +71,8 @@ def testSha(w):
     f=integer_to_binary(HashValues.h5.value,32)
     g=integer_to_binary(HashValues.h6.value,32)
     h=integer_to_binary(HashValues.h7.value,32)
-    print(a)
-    print(b)
-    print(c)
-    print(d)
-    print(e)
-    print(f)
-    print(g)
-    print(h)
-    for i in range(63):
+    #STARTING a-h values match h0-h7
+    for i in range(1):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
         ch=tXor(tAnd(e,f),tAnd(tNot(e),g))
         temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),format((RoundConstants.k.value)[i],'b')),str(w[i]))
@@ -94,6 +87,14 @@ def testSha(w):
         c=b
         b=a
         a=bitAdd(temp1,temp2)
+        print(a)
+        print(b)
+        print(c)
+        print(d)
+        print(e)
+        print(f)
+        print(g)
+        print(h)
     l=[]
     l.append(a)
     l.append(b)
@@ -132,8 +133,11 @@ def rightshift(text,c) -> str:
 
 def tXor(s1,s2):
     s3=""
+    if len(s1)!=len(s2):return "ERROR SHOULD BE EQUAL LENGTHS"
     for i in range(len(s1)):
-        s3=s3+str(int(s1[i])^int(s2[i]))
+        if s1[i]==s2[i]:
+            s3+='0'
+        else: s3+='1'
     return s3
 
 def tAnd(s1,s2):
