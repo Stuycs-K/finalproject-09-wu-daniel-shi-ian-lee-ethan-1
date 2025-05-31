@@ -25,3 +25,7 @@ As the name implies...
 ### 5/27/25 - Step 4 (breaking into chunks)
 wrote get_512_bit_chunks(), which converts the binary into a array of parts which each has 512 bits
 wrote test cases for it
+
+### 5/28/25 - Step 8 (Concatenate final hash)
+wrote concatenate_final_hash_as_binary() and concatenate_final_hash_as_hex()
+wrote test cases
