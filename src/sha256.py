@@ -73,11 +73,11 @@ def testSha(w):
     h=integer_to_binary(HashValues.h7.value,32)
     #STARTING a-h values match h0-h7
     for i in range(1):
-        S1=tXor(tXor(rightrotate(e,6),rightrotate(a,11)),rightrotate(e,25))
+        S1=tXor(tXor(rightrotate(e,6),rightrotate(e,11)),rightrotate(e,25))
         ch=tXor(tAnd(e,f),tAnd(tNot(e),g))
         temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),format((RoundConstants.k.value)[i],'b')),str(w[i]))
         SO=tXor(tXor(rightrotate(a,2),rightrotate(a,13)),rightrotate(a,22))
-        maj=tXor(tXor(tAnd(a,b),tAnd(a,c)),tXor(b,c))
+        maj=tXor(tXor(tAnd(a,b),tAnd(a,c)),tAnd(b,c))
         temp2=bitAdd(SO,maj)
         h=g
         g=f
@@ -87,14 +87,7 @@ def testSha(w):
         c=b
         b=a
         a=bitAdd(temp1,temp2)
-        print(a)
-        print(b)
-        print(c)
-        print(d)
-        print(e)
-        print(f)
-        print(g)
-        print(h)
+
     l=[]
     l.append(a)
     l.append(b)
@@ -142,12 +135,13 @@ def tXor(s1,s2):
 
 def tAnd(s1,s2):
     s3=""
+    if len(s1)!=len(s2):return "ERROR SHOULD BE EQUAL LENGTHS"
     for i in range(len(s1)):
         s3+=compare(s1[i],s2[i])
     return s3
 
 def compare(c1,c2):
-    if (c1=='0' and c2=='0'):return '1'
+    if (c1=='0' and c2=='0'):return '0'
     if (c1=='1' and c2=='0'):return '0'
     if (c1=='0' and c2=='1'):return '0'
     if (c1=='1' and c2=='1'):return '1'
