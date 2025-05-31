@@ -72,7 +72,7 @@ def testSha(w):
     g=integer_to_binary(HashValues.h6.value,32)
     h=integer_to_binary(HashValues.h7.value,32)
     #STARTING a-h values match h0-h7
-    for i in range(1):
+    for i in range(64):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(e,11)),rightrotate(e,25))
         ch=tXor(tAnd(e,f),tAnd(tNot(e),g))
         temp1=bitAdd(bitAdd(bitAdd(bitAdd(h,S1),ch),format((RoundConstants.k.value)[i],'b')),str(w[i]))
