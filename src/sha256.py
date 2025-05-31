@@ -57,7 +57,7 @@ def message_schedule(split_array):
         sum = bitAdd(split_array[i-16], s0value) #(split_array[i-16] + s0value) % (2**32)
         sum = bitAdd(sum, split_array[i-7])
         sum = bitAdd(sum, s1value)
-        split_array[i] = format((int(sum)) % (2**32), 'b')
+        split_array[i] = sum#format((int(sum)) % (2**32), 'b')
     return split_array
     
 
