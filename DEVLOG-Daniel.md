@@ -26,8 +26,8 @@ Finished encoding the splitting of the 512 blocks into 16 32 bit strings in arra
 Working on creating the 64-word message schedule, finished doing the 64 word message schedule
 ### 2024-05/30/25 - Message Schedule 4
 Debugging the message schedule
-### 2024-01-03 - Brief description
-
+### 2024-05/30/25 - Message Schedule Finished
+Message schedule working
 ### 2024-01-03 - Brief description
 
 
