@@ -3,14 +3,17 @@ from enum import Enum
 
 # the first 32 bits of the fractional parts of the square roots of the first 8 primes: 2, 3, 5, 7, 11, 13, 17, 19
 class HashValues(Enum):
-    h0 = 0x6a09e667
-    h1 = 0xbb67ae85
-    h2 = 0x3c6ef372
-    h3 = 0xa54ff53a
-    h4 = 0x510e527f
-    h5 = 0x9b05688c
-    h6 = 0x1f83d9ab
-    h7 = 0x5be0cd19
+    h = {
+        0x6a09e667,
+        0xbb67ae85,
+        0x3c6ef372,
+        0xa54ff53a,
+        0x510e527f,
+        0x9b05688c,
+        0x1f83d9ab,
+        0x5be0cd19
+    }
+
 
 # Each value (0-63) is the first 32 bits of the fractional parts of the cube roots of the first 64 primes (2 - 311)
 class RoundConstants(Enum):
