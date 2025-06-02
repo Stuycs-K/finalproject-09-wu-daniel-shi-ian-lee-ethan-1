@@ -54,9 +54,11 @@ def message_schedule(split_array):
     for i in range(16, len(split_array)):
         s0value = s0(split_array[i-15])
         s1value = s1(split_array[i-2])
-        sum = (split_array[i-16] + s0value) % (2**32)
-        sum = (sum + split_array[i-7]) % (2**32)
-        return (sum + s1) % (2**32)
+        sum = bitAdd(split_array[i-16], s0value) #(split_array[i-16] + s0value) % (2**32)
+        sum = bitAdd(sum, split_array[i-7])
+        sum = bitAdd(sum, s1value)
+        split_array[i] = sum#format((int(sum)) % (2**32), 'b')
+    return split_array
     
 
 # The next thing to discuss is “rightrotate”. This means we take a binary number, then take its digit on the far right and place it on the far left of the number. Repeat this for the number of times indicated after the word “rightrotate”.

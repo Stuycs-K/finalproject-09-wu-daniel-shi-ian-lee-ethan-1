@@ -98,3 +98,6 @@ assert concatenate_final_hash_as_binary(h0=0x01, h1=0x1, h2=0x1, h3=0x1, h4=0x0,
 
 assert concatenate_final_hash_as_hex(h0=0x0, h1=0x0, h2=0x0, h3=0x0, h4=0x0, h5=0x0, h6=0x0, h7=0x0) == '00000000' * 8
 assert concatenate_final_hash_as_hex(h0=0x1, h1=0x1, h2=0x1, h3=0x1, h4=0x0, h5=0x0, h6=0x0, h7=0x0) == '00000001' * 4 + '00000000' * 4
+
+
+print(message_schedule(singular_32_split(preprocessing("wow"))))
