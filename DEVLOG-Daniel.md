@@ -27,7 +27,8 @@ Working on creating the 64-word message schedule, finished doing the 64 word mes
 ### 2024-05/30/25 - Message Schedule 4
 Debugging the message schedule
 ### 2024-05/30/25 - Message Schedule Finished
-Message schedule working
-### 2024-01-03 - Brief description
+Message schedule fixed to work
+### 2024-06/02/25 - Combining Functions
+Our group worked on combining all of our step functions for SHA-256 and testing them with different messages.
 
 
