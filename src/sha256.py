@@ -101,11 +101,18 @@ def compression(w):
 
     binaries = [a, b, c, d, e, f, g, h]
     values = []
-    for binary in binaries:
-        values.append(int(binary, 2))
+    # for binary in binaries:
+    #     values.append(int(binary, 2))
+    #print(binaries)
+    
+    ans = []
     for i in range(8):
-        HashValues.h.value[i] += values[i]
-        HashValues.h.value[i] %= (2 ** 32)
+        a = int(bitAdd(format(HashValues.h.value[i], 'b'),binaries[i]))
+        ans.append(a)
+        #x = HashValues.h.value[i] + values[i]
+        #ans.append(x % (2 ** 32))
+        HashValues.h.value[i]=ans[i]
+    return ans
 
 def tNot(s):
     s1=""
