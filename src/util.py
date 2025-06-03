@@ -21,24 +21,50 @@ def get_next_multiple_of_512(num: int) -> int:
         next_int += 512
     return next_int
 
-def bit_not(binary_string):
-    integer_representation = int(binary_string, 2)
-    return integer_to_binary(integer_representation, len(binary_string))
+def bit_not(s):
+    s1=""
+    for i in range(len(s)):
+        if s[i]=="0":
+            s1+="1"
+        else: s1+="0"
+    return s1
 
-def bit_add(binary_string_1, binary_string_2):
-    integer_sum = int(binary_string_1, 2)+int(binary_string_2,2)
-    return integer_to_binary(integer_sum, 32)
+def bit_add(s1,s2):
+    binary=format((int(s1, 2)+int(s2,2)),'b')
+    if len(binary)<32:
+        return '0'*(32-len(binary))+binary
+    if len(binary)==32:
+        return binary
+    else: return binary[-32:]
 
-def bit_xor(binary_string_1, binary_string_2):
-    if len(binary_string_1)!=len(binary_string_2): raise ValueError("arguments must be same length")
-    return integer_to_binary(int(binary_string_1, 2) ^ int(binary_string_2), len(binary_string_1))
+def right_rotate(text,c):
+    return text[-c:]+text[:len(text)-c]
 
-def bit_and(binary_string_1, binary_string_2):
-    if len(binary_string_1)!=len(binary_string_2): raise ValueError("arguments must be same length")
-    return integer_to_binary(int(binary_string_1, 2) & int(binary_string_2), len(binary_string_1))
+def right_shift(text,c):
+    s=""
+    for x in range(c):
+        s=s+("0")
+    return s + text[:len(text)-c]
 
-def right_rotate(binary_string, rotation):
-    return binary_string[-rotation:]+binary_string[:len(binary_string)-rotation]
+def bit_xor(s1,s2):
+    s3=""
+    if len(s1)!=len(s2):return "ERROR SHOULD BE EQUAL LENGTHS"
+    for i in range(len(s1)):
+        if s1[i]==s2[i]:
+            s3+='0'
+        else: s3+='1'
+    return s3
 
-def right_shift(binary_string,rotation) -> str:
-    return ('0' * rotation) + binary_string[:len(binary_string)-rotation]
+def bit_and(s1,s2):
+    s3=""
+    if len(s1)!=len(s2):return "ERROR SHOULD BE EQUAL LENGTHS"
+    for i in range(len(s1)):
+        s3+=compare(s1[i],s2[i])
+    return s3
+
+def compare(c1,c2):
+    if (c1=='0' and c2=='0'):return '0'
+    if (c1=='1' and c2=='0'):return '0'
+    if (c1=='0' and c2=='1'):return '0'
+    if (c1=='1' and c2=='1'):return '1'
+    return '0'
