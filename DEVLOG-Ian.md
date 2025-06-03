@@ -29,3 +29,6 @@ wrote test cases for it
 ### 5/28/25 - Step 8 (Concatenate final hash)
 wrote concatenate_final_hash_as_binary() and concatenate_final_hash_as_hex()
 wrote test cases
+
+### 5/29/25 - 6/2/25 (Helping groupmates and merging parts)
+Helped group mates with their parts and then worked with them to begin putting the pieces together
