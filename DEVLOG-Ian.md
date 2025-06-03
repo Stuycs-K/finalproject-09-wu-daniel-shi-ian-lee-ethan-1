@@ -29,3 +29,10 @@ wrote test cases for it
 ### 5/28/25 - Step 8 (Concatenate final hash)
 wrote concatenate_final_hash_as_binary() and concatenate_final_hash_as_hex()
 wrote test cases
+
+### 5/29/25 - 6/2/25 - Helped other group members
+mainly helped with step 5 and 6 (message schedule and compression)
+
+### 6/3/25 - Finished SHA256
+Fixed edge cases, working SHA256
+wrote test cases
