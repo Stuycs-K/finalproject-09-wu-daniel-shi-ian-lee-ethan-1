@@ -1,4 +1,5 @@
+from constants import HashValues
 from sha256 import sha256
 
-unhashed = input("blah blah blah")
+unhashed = input("input: ")
 print(sha256(unhashed))
