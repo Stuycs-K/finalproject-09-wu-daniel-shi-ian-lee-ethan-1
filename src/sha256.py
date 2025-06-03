@@ -1,6 +1,10 @@
 from util import *
 from constants import *
+modify = []
 def sha256(input):
+    for i in range(8):
+        modify.append(integer_to_binary(HashValues.h.value[i],32))
+    #print(modify)
     binaryString = preprocessing(input)
     chunks = get_512_bit_chunks(binaryString)
     for chunk in chunks:
@@ -100,18 +104,16 @@ def compression(w):
         a=bitAdd(temp1,temp2)
 
     binaries = [a, b, c, d, e, f, g, h]
-    values = []
-    # for binary in binaries:
-    #     values.append(int(binary, 2))
+    #for binary in binaries:
+        #print(len(binary))
     #print(binaries)
     
     ans = []
     for i in range(8):
-        a = int(bitAdd(format(HashValues.h.value[i], 'b'),binaries[i]))
+        a = int(modify[i],2)+int(binaries[i],2)
+        a %= 2**32
         ans.append(a)
-        #x = HashValues.h.value[i] + values[i]
-        #ans.append(x % (2 ** 32))
-        HashValues.h.value[i]=ans[i]
+        modify[i]=ans[i]
     return ans
 
 def tNot(s):
@@ -171,10 +173,26 @@ def get_512_bit_chunks(binary:str) -> typing.List[str]:
         chunks[i] = binary[(i*512):((i+1)*512)]
     return chunks
 
-def concatenate_final_hash_as_binary(h0:int = HashValues.h.value[0], h1:int = HashValues.h.value[1], h2:int = HashValues.h.value[2], h3:int = HashValues.h.value[3], h4:int = HashValues.h.value[4], h5:int = HashValues.h.value[5], h6:int = HashValues.h.value[6], h7:int = HashValues.h.value[7]) -> str:
+def concatenate_final_hash_as_binary() -> str:
+    h0=modify[0]
+    h1=modify[1]
+    h2=modify[2]
+    h3=modify[3]
+    h4=modify[4]
+    h5=modify[5]
+    h6=modify[6]
+    h7=modify[7]
     return integer_to_binary(h0, 32) + integer_to_binary(h1, 32) + integer_to_binary(h2, 32) + integer_to_binary(h3, 32) + integer_to_binary(h4, 32) + integer_to_binary(h5, 32) + integer_to_binary(h6, 32) + integer_to_binary(h7, 32)
 
-def concatenate_final_hash_as_hex(h0:int = HashValues.h.value[0], h1:int = HashValues.h.value[1], h2:int = HashValues.h.value[2], h3:int = HashValues.h.value[3], h4:int = HashValues.h.value[4], h5:int = HashValues.h.value[5], h6:int = HashValues.h.value[6], h7:int = HashValues.h.value[7]) -> str:
-    decimal_value = int(concatenate_final_hash_as_binary(h0, h1, h2, h3, h4, h5, h6, h7), 2)
+def concatenate_final_hash_as_hex() -> str:
+    h0=modify[0]
+    h1=modify[1]
+    h2=modify[2]
+    h3=modify[3]
+    h4=modify[4]
+    h5=modify[5]
+    h6=modify[6]
+    h7=modify[7]
+    decimal_value = int(concatenate_final_hash_as_binary(), 2)
     hex_string = hex(decimal_value)[2:].zfill(64)
     return hex_string
