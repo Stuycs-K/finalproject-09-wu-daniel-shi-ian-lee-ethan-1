@@ -1,10 +1,12 @@
 from util import *
 from constants import *
-modify = []
+
+modify = [] 
+
 def sha256(input):
     modify.clear()
     for i in range(8):
-        modify.append(integer_to_binary(HashValues.h.value[i],32))
+        modify.append(HashValues.h.value[i])
     binaryString = preprocessing(input)
     chunks = get_512_bit_chunks(binaryString)
     for chunk in chunks:
@@ -31,19 +33,11 @@ def preprocessing(text) -> str:
 #following functions are per 512 chunk
 def singular_32_split(processed_bits): #split a 512 block into 16 32 bits
     bitArray = []
-    for i in range(0, len(processed_bits), 32):
+    for i in range(0, 512, 32):
         bitArray.append(processed_bits[i:i+32])
     for i in range(0, 48):
         bitArray.append('0'*32)
     return bitArray
-
-def multiple_32_split(chunk_Array):
-    split_Array=[]
-    for i in range(0,len(chunk_Array)):
-        split_Array.append(singular_32_split(chunk_Array[i]))
-    return split_Array
-
-
 
 #message_schedule helpers
 
@@ -64,7 +58,7 @@ def s1(binary_string):
     return xorfinal
 
 def message_schedule(split_array):
-    for i in range(16, len(split_array)):
+    for i in range(16, 64):
         s0value = s0(split_array[i-15])
         s1value = s1(split_array[i-2])
         sum = bitAdd(split_array[i-16], s0value) #(split_array[i-16] + s0value) % (2**32)
@@ -78,14 +72,14 @@ def message_schedule(split_array):
 
 # Now consider “rightshift”. This means removing the digit on the far right and adding a zero to the far left. Repeat this for the number of times indicated.
 def compression(w):
-    a=integer_to_binary(HashValues.h.value[0],32)
-    b=integer_to_binary(HashValues.h.value[1],32)
-    c=integer_to_binary(HashValues.h.value[2],32)
-    d=integer_to_binary(HashValues.h.value[3],32)
-    e=integer_to_binary(HashValues.h.value[4],32)
-    f=integer_to_binary(HashValues.h.value[5],32)
-    g=integer_to_binary(HashValues.h.value[6],32)
-    h=integer_to_binary(HashValues.h.value[7],32)
+    a=integer_to_binary(modify[0],32)
+    b=integer_to_binary(modify[1],32)
+    c=integer_to_binary(modify[2],32)
+    d=integer_to_binary(modify[3],32)
+    e=integer_to_binary(modify[4],32)
+    f=integer_to_binary(modify[5],32)
+    g=integer_to_binary(modify[6],32)
+    h=integer_to_binary(modify[7],32)
     #STARTING a-h values match h0-h7
     for i in range(64):
         S1=tXor(tXor(rightrotate(e,6),rightrotate(e,11)),rightrotate(e,25))
@@ -110,9 +104,9 @@ def compression(w):
     
     ans = []
     for i in range(8):
-        a = int(modify[i],2)+int(binaries[i],2)
-        a %= 2**32
-        ans.append(a)
+        sum = modify[i] + int(binaries[i], 2)
+        sum %= (2 ** 32)
+        ans.append(sum)
         modify[i]=ans[i]
     return ans
 
