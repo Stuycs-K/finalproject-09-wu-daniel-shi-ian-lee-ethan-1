@@ -1,4 +1,4 @@
-from sha256 import *
+from sha256 import sha256
 
-input = input("haha")
-print(finalSha(input))
+unhashed = input("blah blah blah")
+print(sha256(unhashed))
