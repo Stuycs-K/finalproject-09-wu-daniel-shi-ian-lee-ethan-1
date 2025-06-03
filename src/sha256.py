@@ -2,9 +2,9 @@ from util import *
 from constants import *
 modify = []
 def sha256(input):
+    modify.clear()
     for i in range(8):
         modify.append(integer_to_binary(HashValues.h.value[i],32))
-    #print(modify)
     binaryString = preprocessing(input)
     chunks = get_512_bit_chunks(binaryString)
     for chunk in chunks:
