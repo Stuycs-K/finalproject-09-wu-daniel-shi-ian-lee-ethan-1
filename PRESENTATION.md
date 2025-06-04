@@ -44,6 +44,13 @@
 
 - Although this means the SHA-1 algorithm is slightly faster than SHA-256, due to its lack of collision resistance and vulnerabilities to brute force attacks, SHA-256’s security outshines its slower performance.
 
+### Sources:
+- https://specopssoft.com/blog/sha256-hashing-password-cracking/
+- https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html
+- https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm
+- https://www.encryptionconsulting.com/education-center/sha-256/
+- https://www.securew2.com/blog/what-is-sha-encryption-sha-256-vs-sha-1
+
 
 
 
