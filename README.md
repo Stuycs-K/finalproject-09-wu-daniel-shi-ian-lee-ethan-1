@@ -22,6 +22,9 @@ make run
 You will be prompted to type an input string.  
 The program will output the SHA256 hash of your input string.
 
+### Video Presentation:
+[SHA-256 Presentation](https://drive.google.com/file/d/1dcE3OpKCckoPkQnuIHi5QGox5jvWIjSa/view?usp=sharing)
+
 ### Resources/ References:
 
 [Step by step description of sha256](https://blog.boot.dev/cryptography/how-sha-2-works-step-by-step-sha-256/)  
