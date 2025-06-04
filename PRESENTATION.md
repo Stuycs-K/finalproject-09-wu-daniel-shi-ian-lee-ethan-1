@@ -1,5 +1,5 @@
 
-#SHA-256
+# SHA-256
 [Encoding process for SHA-256](https://blog.boot.dev/cryptography/how-sha-2-works-step-by-step-sha-256/) 
 
 ### What is SHA-256?
