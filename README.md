@@ -25,7 +25,7 @@ The program will output the SHA256 hash of your input string.
 ### Video Presentation:
 [SHA-256 Presentation (Non-DOE email restriction)](https://drive.google.com/file/d/1dcE3OpKCckoPkQnuIHi5QGox5jvWIjSa/view?usp=sharing)
 
-[SHA-256 Presentation (Non-DOE email restriction)](https://drive.google.com/file/d/1TQzigIhAGUqL-lw7w5LeZtYW2RqJTRPB/view?usp=sharing)
+[SHA-256 Presentation (DOE email restriction)](https://drive.google.com/file/d/1TQzigIhAGUqL-lw7w5LeZtYW2RqJTRPB/view?usp=sharing)
 
 ### Resources/ References:
 
