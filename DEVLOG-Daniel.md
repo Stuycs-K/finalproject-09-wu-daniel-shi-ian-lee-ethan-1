@@ -35,6 +35,6 @@ Message schedule fixed to work
 Our group worked on combining all of our step functions for SHA-256 and testing them with different messages.
 
 ### 2025-06-03 Creating Slides
-I worked on making the slides for the presentation
+I worked on making the slides for the presentation and editing the video for the product.
 
 
